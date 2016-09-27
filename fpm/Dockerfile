@@ -1,7 +1,7 @@
 FROM php:5.6-fpm-alpine
 
 # install the PHP extensions we need
-RUN apk add --update -y libpng-dev libjpeg-turbo-dev && rm -rf /var/lib/apt/lists/* \
+RUN apk add --update libpng-dev libjpeg-turbo-dev && rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 	&& docker-php-ext-install gd mysqli opcache
 
