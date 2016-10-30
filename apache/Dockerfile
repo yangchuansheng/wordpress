@@ -25,7 +25,6 @@ ENV WORDPRESS_SHA1 027e065d30a64720624a7404a1820e6c6fff1202
 
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
 RUN curl -o wordpress.tar.gz -SL https://cn.wordpress.org/wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz \
-	&& echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c - \
 	&& tar -xzf wordpress.tar.gz -C /usr/src/ \
 	&& rm wordpress.tar.gz \
 	&& chown -R www-data:www-data /usr/src/wordpress
